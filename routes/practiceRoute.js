@@ -1,4 +1,6 @@
 const express = require("express")
+const router = express.Router();
+
 const {getStudentsOlder21, 
     getMJStudents, 
     getStudentsStartsWithA, 
@@ -7,7 +9,7 @@ const {getStudentsOlder21,
     explainEmailQuery,createStudent, getStudentById
     } = require("../controllers/practiceController")
 
-const router = express.Router();
+const authenticate = require("../middlewares/authMiddleware")
 
 router.get("/getStudentsOT21", getStudentsOlder21)
 router.get("/getMJStudents", getMJStudents)
